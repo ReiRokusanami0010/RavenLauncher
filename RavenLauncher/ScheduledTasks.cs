@@ -11,12 +11,13 @@ namespace RavenLauncher {
         public static void Fire() {
             AlConsole.WriteLine(LauncherInfoScheme, "Service Fired (*´ω｀*)");
             //_timer = new Timer(60 * 60 * 1000);
-            _timer = new Timer(60 * 1000);
+            _timer = Settings.IsMaintenanceMode ? new Timer(60 * 1000) : new Timer(60 * 60 * 1000);
             _timer.Elapsed += new ElapsedEventHandler(OnTimeEvent);
             _timer.Start();
         }
         
         private static void OnTimeEvent(object obj, ElapsedEventArgs eventArgs) {
+            _timer.Start();
             AlConsole.WriteLine(RunCollectorScheme, "Collect Start");
             int statusCode = CollectStart();
             if (statusCode != 0) {
@@ -25,7 +26,6 @@ namespace RavenLauncher {
             }
             AlConsole.WriteLine(RunCollectorScheme, "Collect Finished Successfully!");
             AlConsole.WriteLine(LauncherInfoScheme, "Set Next Scheduled!");
-            _timer.Start();
         }
 
         private static int CollectStart() {

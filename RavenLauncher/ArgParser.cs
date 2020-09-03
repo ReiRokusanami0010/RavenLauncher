@@ -20,6 +20,10 @@ namespace RavenLauncher {
                             Settings.DataBaseIsLocal = targetArgs[++i].Equals("true");
                             break;
                         
+                        case "--ismaintenance":
+                            Settings.IsMaintenanceMode = true;
+                            break;
+                        
                         case "--githubusername":
                             Settings.GithubUserName = targetArgs[++i];
                             break;

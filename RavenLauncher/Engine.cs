@@ -21,6 +21,7 @@ namespace RavenLauncher {
             ScheduledTasks.Fire();
 
             Console.ReadLine();
+            AlConsole.WriteLine(LauncherCautScheme, "Stopped Launcher.");
         }
     }
 }

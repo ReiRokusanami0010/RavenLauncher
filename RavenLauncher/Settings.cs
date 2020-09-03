@@ -13,13 +13,14 @@ namespace RavenLauncher {
         public static readonly string ConfigDir = BuildDir + "Config/";
         
         // Program Argument
-        public static string DataBaseUserName { get; set; }
-        public static string DataBasePassWord { get; set; }
-        public static bool   DataBaseIsLocal  { get; set; }
-        public static string GithubUserName   { get; set; }
-        public static string GithubPassWord   { get; set; }
-        public static string GithubToken      { get; set; }
-        
+        public static string DataBaseUserName  { get; set; }
+        public static string DataBasePassWord  { get; set; }
+        public static bool   DataBaseIsLocal   { get; set; }
+        public static string GithubUserName    { get; set; }
+        public static string GithubPassWord    { get; set; }
+        public static string GithubToken       { get; set; }
+        public static bool   IsMaintenanceMode { get; set; }
+
         // App Directories
         public static readonly string Controller = BuildDir + "YoutubeDatabaseController";
     }

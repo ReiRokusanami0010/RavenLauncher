@@ -1,7 +1,7 @@
 ﻿using Log5RLibs.Services;
 
 namespace RavenLauncher.Schemes {
-    public class LauncherScheme {
+    public static class LauncherScheme {
         private const int MAX_INDEX = -15;
         
         // Thread Name
@@ -19,6 +19,7 @@ namespace RavenLauncher.Schemes {
         
         // Schemes
         public static readonly AlCConfigScheme LauncherInfoScheme   = new AlCConfigScheme(0, null            , LauncherInfo);
+        public static readonly AlCConfigScheme LauncherCautScheme   = new AlCConfigScheme(1, null            , LauncherInfo);
         public static readonly AlCConfigScheme CloneInfoScheme      = new AlCConfigScheme(0, StatClone       , LauncherInfo);
         public static readonly AlCConfigScheme CloneFailureScheme   = new AlCConfigScheme(3, StatCloneFailure, LauncherInfo);
         public static readonly AlCConfigScheme BuildInfoScheme      = new AlCConfigScheme(0, StatBuild       , LauncherInfo);
