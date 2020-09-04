@@ -19,7 +19,7 @@ namespace RavenLauncher {
             
             // Service Starter
             ScheduledTasks.Fire();
-
+            AlConsole.WriteLine(LauncherCautScheme, "> Press Enter, Launcher to Stop. <");
             Console.ReadLine();
             AlConsole.WriteLine(LauncherCautScheme, "Stopped Launcher.");
         }
