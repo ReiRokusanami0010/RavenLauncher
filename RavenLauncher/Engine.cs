@@ -16,7 +16,7 @@ namespace RavenLauncher {
             StatusChecker.MakeStatusDir();
             
             // Setup
-            if (StatusChecker.IsDownloaded()) {
+            if (!StatusChecker.IsDownloaded()) {
                 RavenSetupProcess.GitClone(Settings.ControllerRepoUrl, Settings.CloneDir, gitToken: Settings.GithubToken);
                 RavenSetupProcess.BuildController(Settings.CloneDir);
                 RavenSetupProcess.GitClone(Settings.ConfigRepoUrl   , Settings.ConfigDir, gitToken: Settings.GithubToken);
