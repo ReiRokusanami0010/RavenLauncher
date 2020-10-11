@@ -21,6 +21,7 @@ namespace RavenLauncher {
                 AlConsole.WriteLine(CloneInfoScheme, "クローンに成功しました。");
             } catch (Exception e) {
                 AlConsole.WriteLine(CloneFailureScheme, "クローンに失敗しました。");
+                Console.WriteLine(e.StackTrace);
                 Environment.Exit(-1);
             }
         }

@@ -12,10 +12,16 @@ namespace RavenLauncher {
             // Arguments Parse.
             ArgParser.Decomposition(args);
             
+            // Make Status Folder
+            StatusChecker.MakeStatusDir();
+            
             // Setup
-            RavenSetupProcess.GitClone(Settings.ControllerRepoUrl, Settings.CloneDir, gitToken: Settings.GithubToken);
-            RavenSetupProcess.BuildController(Settings.CloneDir);
-            RavenSetupProcess.GitClone(Settings.ConfigRepoUrl   , Settings.ConfigDir, gitToken: Settings.GithubToken);
+            if (StatusChecker.IsDownloaded()) {
+                RavenSetupProcess.GitClone(Settings.ControllerRepoUrl, Settings.CloneDir, gitToken: Settings.GithubToken);
+                RavenSetupProcess.BuildController(Settings.CloneDir);
+                RavenSetupProcess.GitClone(Settings.ConfigRepoUrl   , Settings.ConfigDir, gitToken: Settings.GithubToken);
+                Settings.RecvFile.Create();
+            }
             
             // Service Starter
             ScheduledTasks.Fire();

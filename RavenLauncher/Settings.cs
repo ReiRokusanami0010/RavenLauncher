@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace RavenLauncher {
     public static class Settings {
@@ -10,8 +11,9 @@ namespace RavenLauncher {
         // Target Directories
         public static readonly string CloneDir  = AppDomain.CurrentDomain.BaseDirectory + "Temps/";
         public static readonly string BuildDir  = AppDomain.CurrentDomain.BaseDirectory + "Controller/";
+        public static readonly string StatusDir = AppDomain.CurrentDomain.BaseDirectory + "Stats/";
         public static readonly string ConfigDir = BuildDir + "Config/";
-        
+
         // Program Argument
         public static string DataBaseUserName  { get; set; }
         public static string DataBasePassWord  { get; set; }
@@ -23,5 +25,14 @@ namespace RavenLauncher {
 
         // App Directories
         public static readonly string Controller = BuildDir + "YoutubeDatabaseController";
+        
+        // Stat Files
+        public static readonly string RecoveryStat   = "recovery.stat";
+        public static readonly string DownloadedStat = "downloaded.stat";
+        
+        // Directory Info
+        public static readonly DirectoryInfo StatInfo = new DirectoryInfo(StatusDir);
+        public static readonly FileInfo RecvFile = new FileInfo(StatusDir + RecoveryStat);
+        public static readonly FileInfo DlFile   = new FileInfo(StatusDir + DownloadedStat);
     }
 }
