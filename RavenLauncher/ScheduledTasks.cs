@@ -39,6 +39,7 @@ namespace RavenLauncher {
                         AlConsole.WriteLine(FailureCollectScheme, $"リトライします。[{i}]");
                     } else {
                         AlConsole.WriteLine(FailureCollectScheme, $"リカバリーに成功しました。");
+                        break;
                     }
                 }
             }
